@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  description: API consulta de clientes y usuarios de SIIGO
+  version: "1.0.0"
+  title: Swagger SIIGO
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: cinthya.cabanzo@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+# Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/cinthylli/Siigo/1.0.0
+  - url: 'https://petstore.swagger.io/v2'
+tags:
+  - name: customer
+    description: Everything about your customer
+  - name: product
+    description: Everything about your product
+  - name: user
+    description: Operations about user
+  - name: invoice
+    description: Operations about invoice
+paths:
+  /customer:
+    post:
+      
