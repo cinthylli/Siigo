@@ -24,6 +24,217 @@ tags:
   - name: invoice
     description: Operations about invoice
 paths:
+## CUSTOMER
+# CREAR CLIENTE
   /customer:
-    post:
+    post: 
+      operationId: addCustomer
+      tags: 
+        - customer
+      parameters:
+      - $ref: '#/components/parameters/authorizationParam'
+      - $ref: '#/components/parameters/uuidParam'
+      - $ref: '#/components/parameters/fechaParam'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+# OBTENER CLIENTE POR CUSTOMER_ID
+    get:
+      operationId: getCustomer
+      summary: Este comando permite obtener todos los clientes de SIIGO
+      tags: 
+        - customer
+      parameters:
+      - $ref: '#/components/parameters/authorizationParam'
+      - $ref: '#/components/parameters/uuidParam'
+      - $ref: '#/components/parameters/fechaParam'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+          
+components:
+
+  requestBodies:
+  # REQUEST BODY
+  
+    customerReq:
+      description: Estructura del cliente
+      required: true
+      content:
+          application/json:
+            schema:
+              type: object
+              
+    invoiceReq:
+      description: Estructura del factura
+      required: true
+      content:
+          application/json:
+            schema:
+              type: object
+              
+    productReq:
+      description: Estructura del producto
+      required: true
+      content:
+          application/json:
+            schema:
+              type: object
+              
+    
+  responses:
+  # RESPONSES
+        '200':
+          description: Initiate request successful response
+          headers:
+            uuid:
+              schema:
+                type: string
+                format: uuid
+              description: Identificador único del mensaje, este campo retorna el UUID generado para la operación.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Authentication error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Authorization error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Missing resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
       
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'        
+                
+  parameters:
+  # PARAMETERS - HEADER
+    authorizationParam:
+      in: header
+      name: authorization
+      required: false
+      schema:
+        type: string
+      description: header de autenticación
+    
+    uuidParam:
+      in: header
+      name: uuid
+      required: true
+      schema:
+        type: string
+      description: código unico de la transacción
+
+    fechaParam:
+      in: header
+      name: fecha
+      required: true
+      schema:
+        type: string
+      description: fecha en la que se realiza la transacción
+
+  
+  # PARAMETERS - PATH
+    customerIdParam:
+      in: path
+      name: customerId
+      required: true
+      schema:
+        type: string
+      description: identificación del cliente
+    
+    invoiceIdParam:
+      in: path
+      name: invoiceId
+      required: true
+      schema:
+        type: string
+      description: identificación de la factura
+  
+    productIdParam:
+      in: path
+      name: productId
+      required: true
+      schema:
+        type: string  
+        format: uuid
+      description: identificación única del producto
+      
+  schemas:
+  # PRODUCTO 
+
+
+  # TRANSACCIONES 
+    FechaProceso:
+          description: fecha en la que se realiza el proceso, formato ISO (2019-11-01T09:04:29+02)
+          type: string
+          example: '2019-11-01T09:04:29+02'
+         
+   
+  # RESPONSES 
+    Success:
+      properties:
+        codigo:
+          description: codigo interno para mensajes de respuesta.
+          type: string
+        mensaje: 
+            description: mensaje de respuesta
+            type: string
+        fechaProceso: 
+            $ref: '#/components/schemas/FechaProceso'
+    
+ 
+    ErrorResponse:
+      properties:
+        codigo:
+          description: codigo interno para manejo de errores.
+          type: string
+        tipo:
+            description: Error type (Business, Technical).
+            type: string
+        mensaje: 
+            description: mensaje del error
+            type: string
+        fechaProceso: 
+            $ref: '#/components/schemas/FechaProceso'                 
