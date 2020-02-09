@@ -18,6 +18,7 @@ Se uso MongoDB como BD y se cargaron archivos csv a Mongo Compass, el cual esta 
 
 # IBM CLOUD
 
+## Producto
 Estas graficas son del modelo para predecir el producto a seleccionar:
 ![Calificacion de los modelos generados ](https://github.com/cinthylli/Siigo/blob/master/Modelo/LeaderBoard%20IT1.JPG)
 ![Mapa Relacion](https://github.com/cinthylli/Siigo/blob/master/Modelo/Mapa%20de%20Relacion%20IT1.JPG)
@@ -65,6 +66,12 @@ apiPost(scoring_url, wmlToken, mlInstanceId, payload, function (resp) {
 	console.log(error);
 });
 </code></pre>
+
+## Cliente
+
+![Mapa relacion CLient_id](https://github.com/cinthylli/Siigo/blob/master/Modelo/Mapa%20de%20Relacion%20IT2.JPG)
+![Cuadro Comparativo Medidas Estadisticas](https://github.com/cinthylli/Siigo/blob/master/Modelo/Medidas%20ChartIT2.JPG)
+![Evaluacion del mejor modelo](https://github.com/cinthylli/Siigo/blob/master/Modelo/Medidas%20Modelo%20IT2.JPG)
 # Documentacion Utilizada:
 MEVN Curso - Mongodb, Express, Vuejs y Nodejs, Parte 1 - Backend con Nodejs, Express y Mongodb
 - https://www.youtube.com/watch?v=ARIzrNwA5HQ
