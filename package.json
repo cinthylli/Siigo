@@ -4,16 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js --ignore 'src/public'",
+    "webpack": "webpack --watch --mode development",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.8.11",
-    "morgan": "^1.9.1",
-    "nodemon": "^2.0.2"
+    "express": "4.16.3",
+    "mongoose": "5.1.0",
+    "morgan": "1.9.0"
+  },
+  "devDependencies": {
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "1.7.0",
+    "nodemon": "1.17.4",
+    "vue": "2.5.16",
+    "vue-loader": "15.0.10",
+    "vue-template-compiler": "2.5.16",
+    "webpack": "4.8.2",
+    "webpack-cli": "2.1.3"
   }
 }

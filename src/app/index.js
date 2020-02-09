@@ -1,0 +1,1 @@
+alert('aqui va Vuejs');
