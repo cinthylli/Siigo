@@ -25,6 +25,7 @@ Estas graficas son del modelo para predecir el producto a seleccionar:
 ![Metricas Estadisticas del Mejor Modelo](https://github.com/cinthylli/Siigo/blob/master/Modelo/Medidas%20Modelo%20IT1.JPG)
 
 Snippet JS:
+<pre><code>
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const btoa = require("btoa");
 const wml_credentials = new Map();
@@ -63,7 +64,7 @@ apiPost(scoring_url, wmlToken, mlInstanceId, payload, function (resp) {
 }, function (error) {
 	console.log(error);
 });
-
+</code></pre>
 # Documentacion Utilizada:
 MEVN Curso - Mongodb, Express, Vuejs y Nodejs, Parte 1 - Backend con Nodejs, Express y Mongodb
 - https://www.youtube.com/watch?v=ARIzrNwA5HQ
