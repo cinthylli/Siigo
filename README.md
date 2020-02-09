@@ -1,6 +1,9 @@
-# Siigo
- Hackton Siigo
- 
+# Hackton Siigo
+
+# Scripts Disponibles
+ - npm start :Ejecuta la aplicación en modo de desarrollo. Abra http: // localhost: 3000 para verlo en el navegador.
+ - npm run build: Compila la aplicación para producción en la carpeta de build.
+
 # Api CRUD Customer y Products
 Se realizo una app en VueJS con sus respectiva API , las cuales se observan en APP/src/routes y su visualizacion en App.vue
 
