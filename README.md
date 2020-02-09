@@ -9,6 +9,8 @@ Se realizo una app en VueJS con sus respectiva API , las cuales se observan en A
 
 Puede observar la documentacion y testear la API usando https://documenter.getpostman.com/view/8357012/SWTHbv2u?version=latest
 
+
+
 # Cargue de datos maestros
 Se uso MongoDB como BD y se cargaron archivos csv a Mongo Compass, el cual esta sincronizado con Mongo Atlas en la nube.
 
